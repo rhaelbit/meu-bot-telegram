@@ -440,17 +440,6 @@ def main():
     app.add_handler(conv)
     app.add_handler(CommandHandler("ajuda", ajuda))
 
-    # Handler para usuarios que enviam mensagem sem /start (dica amigavel)
-    async def dica_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-        await update.message.reply_text(
-            "Ola! Digite /start para iniciar o atendimento."
-        )
-
-    app.add_handler(
-        MessageHandler(filters.TEXT & ~filters.COMMAND, dica_start),
-        group=1,  # grupo mais baixo, so roda se ninguem mais pegou
-    )
-
     logger.info(f"Bot iniciado | Nicho: {BOT_CONFIG['nicho']} | Modo: {MODO}")
     if CLIENTE:
         logger.info(f"Cliente: {CLIENTE['nome_imobiliaria']} ({CLIENTE['nome_consultor']})")
