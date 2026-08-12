@@ -1,0 +1,14 @@
+# Ambiente
+.env
+.credentials
+
+# Dados Docker
+postgres_data/
+redis_data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
